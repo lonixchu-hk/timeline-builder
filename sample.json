@@ -78,7 +78,7 @@
           "isCritical": true
         },
         {
-          "name": "CIO Approval",
+          "name": "Senior Management Approval",
           "start": "2025-06-10",
           "end": "2025-06-25",
           "type": "API",
@@ -87,8 +87,7 @@
       ]
     },
     {
-      "stage": "Release 1",
-      "desc": "Night Mode Integration",
+      "stage": "ReleaseAPI Performance",
       "items": [
         {
           "name": "Analysis & Design",
@@ -226,7 +225,7 @@
     },
     {
       "stage": "Release 3",
-      "desc": "App | NFC Mini App | Switching Outage",
+      "desc": "Module 1 | Module 2",
       "items": [
         {
           "name": "Analysis & Design - API",
