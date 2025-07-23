@@ -4,6 +4,12 @@
 
 The Timeline Builder is a JSON-based project management tool designed to help users define and visualize project timelines, stages, and tasks. It provides a structured way to organize project details, including critical tasks, types, and durations.
 
+## Access the Timeline Builder
+
+You can access the Timeline Builder through the following link:
+
+[Timeline Builder Website](https://timeline.llpzone.com)
+
 ## Features
 
 - Define project start and end dates.
