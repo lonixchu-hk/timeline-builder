@@ -6,8 +6,8 @@
   "config": {
     "majorBgColor": "#c7ff2e",
     "typeMap": {
-      "ETMS": "#d2e63d",
-      "SafeTrack App": "#b4c7e7"
+      "API": "#d2e63d",
+      "App": "#b4c7e7"
     }
   },
   "stages": [
@@ -19,35 +19,35 @@
           "name": "Gathering requirement and scope",
           "start": "2025-01-03",
           "end": "2025-04-30",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
           "name": "Solutioning",
           "start": "2025-03-08",
           "end": "2025-05-02",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "Budgeting",
           "start": "2025-04-02",
           "end": "2025-05-14",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
           "name": "SFT",
           "start": "2025-04-10",
           "end": "2025-05-05",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "Paper",
           "start": "2025-04-30",
           "end": "2025-05-31",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         }
       ]
@@ -60,28 +60,28 @@
           "name": "Gate 1",
           "start": "2025-05-22",
           "end": "2025-06-10",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
           "name": "Gate 2",
           "start": "2025-06-02",
           "end": "2025-06-16",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
           "name": "Gate 3",
           "start": "2025-06-06",
           "end": "2025-06-20",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
           "name": "CIO Approval",
           "start": "2025-06-10",
           "end": "2025-06-25",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         }
       ]
@@ -94,42 +94,42 @@
           "name": "Analysis & Design",
           "start": "2025-07-15",
           "end": "2025-07-21",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "Build & Unit Test",
           "start": "2025-07-21",
           "end": "2025-08-12",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "System Integration Test with Documentation",
           "start": "2025-08-13",
           "end": "2025-08-25",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "User Acceptance Test with Support",
           "start": "2025-08-26",
           "end": "2025-09-10",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "Production Preparation",
           "start": "2025-09-05",
           "end": "2025-09-12",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
           "name": "Production Launch",
           "start": "2025-09-12",
           "end": "2025-09-15",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         }
       ]
@@ -139,170 +139,170 @@
       "desc": "Enhance Logging",
       "items": [
         {
-          "name": "Analysis & Design - ETMS",
+          "name": "Analysis & Design - API",
           "start": "2025-07-15",
           "end": "2025-07-31",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Build & Unit Test - ETMS",
+          "name": "Build & Unit Test - API",
           "start": "2025-07-21",
           "end": "2025-09-10",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "System Integration Test - ETMS",
+          "name": "System Integration Test - API",
           "start": "2025-09-11",
           "end": "2025-10-06",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "User Acceptance Test - ETMS",
+          "name": "User Acceptance Test - API",
           "start": "2025-10-07",
           "end": "2025-10-31",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Production Preparation - ETMS",
+          "name": "Production Preparation - API",
           "start": "2025-11-07",
           "end": "2025-11-12",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Production Launch - ETMS",
+          "name": "Production Launch - API",
           "start": "2025-11-14",
           "end": "2025-11-20",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Analysis & Design - SafeTrack App",
+          "name": "Analysis & Design - App",
           "start": "2025-08-01",
           "end": "2025-08-22",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         },
         {
-          "name": "Build & Unit Test - SafeTrack App",
+          "name": "Build & Unit Test - App",
           "start": "2025-08-16",
           "end": "2025-09-12",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         },
         {
-          "name": "System Integration Test - SafeTrack App",
+          "name": "System Integration Test - App",
           "start": "2025-09-12",
           "end": "2025-09-30",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         },
         {
-          "name": "User Acceptance Test - SafeTrack App",
+          "name": "User Acceptance Test - App",
           "start": "2025-10-03",
           "end": "2025-11-04",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         },
         {
-          "name": "Production Preparation - SafeTrack App",
+          "name": "Production Preparation - App",
           "start": "2025-10-31",
           "end": "2025-11-12",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         },
         {
-          "name": "Production Launch - SafeTrack App",
+          "name": "Production Launch - App",
           "start": "2025-11-14",
           "end": "2025-11-20",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": false
         }
       ]
     },
     {
       "stage": "Release 3",
-      "desc": "SafeTrack App | NFC Mini App | Switching Outage",
+      "desc": "App | NFC Mini App | Switching Outage",
       "items": [
         {
-          "name": "Analysis & Design - ETMS",
+          "name": "Analysis & Design - API",
           "start": "2025-07-15",
           "end": "2025-08-15",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
-          "name": "Build & Unit Test - ETMS",
+          "name": "Build & Unit Test - API",
           "start": "2025-07-21",
           "end": "2025-10-17",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
-          "name": "System Integration Test - ETMS",
+          "name": "System Integration Test - API",
           "start": "2025-10-20",
           "end": "2025-11-21",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "User Acceptance Test - ETMS",
+          "name": "User Acceptance Test - API",
           "start": "2025-11-24",
           "end": "2025-12-31",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Production Preparation - ETMS",
+          "name": "Production Preparation - API",
           "start": "2026-01-06",
           "end": "2026-01-23",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": false
         },
         {
-          "name": "Production Launch - ETMS",
+          "name": "Production Launch - API",
           "start": "2026-01-26",
           "end": "2026-01-30",
-          "type": "ETMS",
+          "type": "API",
           "isCritical": true
         },
         {
-          "name": "Build & Unit Test - SafeTrack App",
+          "name": "Build & Unit Test - App",
           "start": "2025-10-10",
           "end": "2025-12-05",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": true
         },
         {
-          "name": "System Integration Test - SafeTrack App",
+          "name": "System Integration Test - App",
           "start": "2025-12-01",
           "end": "2025-12-19",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": true
         },
         {
-          "name": "User Acceptance Test - SafeTrack App",
+          "name": "User Acceptance Test - App",
           "start": "2025-12-16",
           "end": "2026-01-16",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": true
         },
         {
-          "name": "Production Preparation - SafeTrack App",
+          "name": "Production Preparation - App",
           "start": "2026-01-12",
           "end": "2026-01-23",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": true
         },
         {
-          "name": "Production Launch - SafeTrack App",
+          "name": "Production Launch - App",
           "start": "2026-01-26",
           "end": "2026-01-30",
-          "type": "SafeTrack App",
+          "type": "App",
           "isCritical": true
         }
       ]
