@@ -1,0 +1,311 @@
+{
+  "basic": {
+    "projectStart": "2025-01-01",
+    "projectEnd": "2026-03-31"
+  },
+  "config": {
+    "majorBgColor": "#c7ff2e",
+    "typeMap": {
+      "ETMS": "#d2e63d",
+      "SafeTrack App": "#b4c7e7"
+    }
+  },
+  "stages": [
+    {
+      "stage": "Business Analysis",
+      "desc": "",
+      "items": [
+        {
+          "name": "Gathering requirement and scope",
+          "start": "2025-01-03",
+          "end": "2025-04-30",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "Solutioning",
+          "start": "2025-03-08",
+          "end": "2025-05-02",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Budgeting",
+          "start": "2025-04-02",
+          "end": "2025-05-14",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "SFT",
+          "start": "2025-04-10",
+          "end": "2025-05-05",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Paper",
+          "start": "2025-04-30",
+          "end": "2025-05-31",
+          "type": "ETMS",
+          "isCritical": true
+        }
+      ]
+    },
+    {
+      "stage": "Paper Preparation and Approval",
+      "desc": "",
+      "items": [
+        {
+          "name": "Gate 1",
+          "start": "2025-05-22",
+          "end": "2025-06-10",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "Gate 2",
+          "start": "2025-06-02",
+          "end": "2025-06-16",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "Gate 3",
+          "start": "2025-06-06",
+          "end": "2025-06-20",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "CIO Approval",
+          "start": "2025-06-10",
+          "end": "2025-06-25",
+          "type": "ETMS",
+          "isCritical": true
+        }
+      ]
+    },
+    {
+      "stage": "Release 1",
+      "desc": "Night Mode Integration",
+      "items": [
+        {
+          "name": "Analysis & Design",
+          "start": "2025-07-15",
+          "end": "2025-07-21",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Build & Unit Test",
+          "start": "2025-07-21",
+          "end": "2025-08-12",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "System Integration Test with Documentation",
+          "start": "2025-08-13",
+          "end": "2025-08-25",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "User Acceptance Test with Support",
+          "start": "2025-08-26",
+          "end": "2025-09-10",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Preparation",
+          "start": "2025-09-05",
+          "end": "2025-09-12",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Launch",
+          "start": "2025-09-12",
+          "end": "2025-09-15",
+          "type": "ETMS",
+          "isCritical": false
+        }
+      ]
+    },
+    {
+      "stage": "Release 2",
+      "desc": "Enhance Logging",
+      "items": [
+        {
+          "name": "Analysis & Design - ETMS",
+          "start": "2025-07-15",
+          "end": "2025-07-31",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Build & Unit Test - ETMS",
+          "start": "2025-07-21",
+          "end": "2025-09-10",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "System Integration Test - ETMS",
+          "start": "2025-09-11",
+          "end": "2025-10-06",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "User Acceptance Test - ETMS",
+          "start": "2025-10-07",
+          "end": "2025-10-31",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Preparation - ETMS",
+          "start": "2025-11-07",
+          "end": "2025-11-12",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Launch - ETMS",
+          "start": "2025-11-14",
+          "end": "2025-11-20",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Analysis & Design - SafeTrack App",
+          "start": "2025-08-01",
+          "end": "2025-08-22",
+          "type": "SafeTrack App",
+          "isCritical": false
+        },
+        {
+          "name": "Build & Unit Test - SafeTrack App",
+          "start": "2025-08-16",
+          "end": "2025-09-12",
+          "type": "SafeTrack App",
+          "isCritical": false
+        },
+        {
+          "name": "System Integration Test - SafeTrack App",
+          "start": "2025-09-12",
+          "end": "2025-09-30",
+          "type": "SafeTrack App",
+          "isCritical": false
+        },
+        {
+          "name": "User Acceptance Test - SafeTrack App",
+          "start": "2025-10-03",
+          "end": "2025-11-04",
+          "type": "SafeTrack App",
+          "isCritical": false
+        },
+        {
+          "name": "Production Preparation - SafeTrack App",
+          "start": "2025-10-31",
+          "end": "2025-11-12",
+          "type": "SafeTrack App",
+          "isCritical": false
+        },
+        {
+          "name": "Production Launch - SafeTrack App",
+          "start": "2025-11-14",
+          "end": "2025-11-20",
+          "type": "SafeTrack App",
+          "isCritical": false
+        }
+      ]
+    },
+    {
+      "stage": "Release 3",
+      "desc": "SafeTrack App | NFC Mini App | Switching Outage",
+      "items": [
+        {
+          "name": "Analysis & Design - ETMS",
+          "start": "2025-07-15",
+          "end": "2025-08-15",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "Build & Unit Test - ETMS",
+          "start": "2025-07-21",
+          "end": "2025-10-17",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "System Integration Test - ETMS",
+          "start": "2025-10-20",
+          "end": "2025-11-21",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "User Acceptance Test - ETMS",
+          "start": "2025-11-24",
+          "end": "2025-12-31",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Preparation - ETMS",
+          "start": "2026-01-06",
+          "end": "2026-01-23",
+          "type": "ETMS",
+          "isCritical": false
+        },
+        {
+          "name": "Production Launch - ETMS",
+          "start": "2026-01-26",
+          "end": "2026-01-30",
+          "type": "ETMS",
+          "isCritical": true
+        },
+        {
+          "name": "Build & Unit Test - SafeTrack App",
+          "start": "2025-10-10",
+          "end": "2025-12-05",
+          "type": "SafeTrack App",
+          "isCritical": true
+        },
+        {
+          "name": "System Integration Test - SafeTrack App",
+          "start": "2025-12-01",
+          "end": "2025-12-19",
+          "type": "SafeTrack App",
+          "isCritical": true
+        },
+        {
+          "name": "User Acceptance Test - SafeTrack App",
+          "start": "2025-12-16",
+          "end": "2026-01-16",
+          "type": "SafeTrack App",
+          "isCritical": true
+        },
+        {
+          "name": "Production Preparation - SafeTrack App",
+          "start": "2026-01-12",
+          "end": "2026-01-23",
+          "type": "SafeTrack App",
+          "isCritical": true
+        },
+        {
+          "name": "Production Launch - SafeTrack App",
+          "start": "2026-01-26",
+          "end": "2026-01-30",
+          "type": "SafeTrack App",
+          "isCritical": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Timeline Builder & JSON Form</title>
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <!-- style -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css?v=1" />
+  </head>
+  <body>
+    <div id="configOverlay"></div>
+    <div id="configSlidePanel" class="config-slide-panel">
+      <div class="config-header">
+        <h3>Config</h3>
+        <button id="closeConfigBtn">&times;</button>
+      </div>
+      <div class="form-row">
+        <label for="majorBgColor">Major Timeline Item Background:</label>
+        <input type="color" id="majorBgColor" value="#e0e7ef" />
+      </div>
+      <div class="form-row type-row">
+        <label class="type-label">Type/Color Mapping:</label>
+        <div id="typeList">
+          <!-- Dynamic type/color rows will be rendered here -->
+        </div>
+        <button type="button" class="btn btn-add" id="addTypeBtn">
+          + Add Type
+        </button>
+        <div id="typeConfigError" class="error-message"></div>
+      </div>
+      <button type="button" class="btn btn-save" id="saveConfigBtn">
+        Apply Config
+      </button>
+    </div>
+    <div class="container">
+      <div class="form-section">
+        <h2 style="flex-shrink: 0">Project Timeline Form</h2>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+          "
+        >
+          <button type="button" class="btn btn-add" id="openImportJsonPopupBtn">
+            Import by JSON
+          </button>
+          <button id="openConfigBtn" class="btn">Setting</button>
+        </div>
+
+        <form
+          id="timelineForm"
+          autocomplete="off"
+          style="
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+          "
+        >
+          <div
+            class="form-row"
+            style="flex-shrink: 0; align-items: center; gap: 12px"
+          >
+            <label>Project Date Range:</label>
+            <input
+              type="text"
+              id="projectDateRange"
+              style="width: 220px"
+              placeholder="YYYYMMDD - YYYYMMDD"
+            />
+            <span style="display: none">
+              <span style="margin: 0 4px">or</span>
+              <input
+                type="text"
+                id="projectStart"
+                maxlength="8"
+                placeholder="YYYYMMDD"
+                pattern="\d{8}"
+                style="width: 100px"
+                oninput="maskDateInput(this)"
+              />
+              <span>to</span>
+              <input
+                type="text"
+                id="projectEnd"
+                maxlength="8"
+                placeholder="YYYYMMDD"
+                pattern="\d{8}"
+                style="width: 100px"
+                oninput="maskDateInput(this)"
+              />
+            </span>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-shrink: 0;
+              margin-bottom: 0;
+            "
+          >
+            <h3>Stages</h3>
+            <button
+              type="button"
+              class="btn btn-add"
+              id="addStageBtn"
+              style="margin-left: 12px"
+            >
+              + Add Stage
+            </button>
+          </div>
+          <div id="stages"></div>
+          <div class="actions" style="flex-shrink: 0">
+            <button type="button" class="btn btn-cancel" id="cancelBtn">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-save" id="saveBtn">
+              Export JSON
+            </button>
+            <button type="button" class="btn btn-export" id="showTimelineBtn">
+              Show Timeline
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="timeline-section">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            gap: 12px;
+          "
+        >
+          <h2>Timeline Preview</h2>
+          <div style="display: flex; gap: 10px; align-items: center">
+            <button
+              id="fullscreenTimelineBtn"
+              class="fullscreen-button"
+              style="
+                display: none;
+                margin: 0;
+                position: static;
+                background: #64748b;
+                max-width: 180px;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                style="width: 16px; height: 16px"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 8V6a2 2 0 012-2h2m8 0h2a2 2 0 012 2v2m0 8v2a2 2 0 01-2 2h-2m-8 0H6a2 2 0 01-2-2v-2"
+                />
+              </svg>
+              Fullscreen
+            </button>
+            <button
+              class="export-button"
+              style="display: none; margin: 0; position: static"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Export as PNG
+            </button>
+          </div>
+        </div>
+        <div id="timeline-wrapper">
+          <div id="timeline-container" style="position: relative"></div>
+          <div id="fullscreenTimelinePopup">
+            <div id="fullscreenTimelineContent">
+              <div
+                id="loadingIndicator"
+                class="loading-indicator"
+                style="
+                  display: none;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(255, 255, 255, 0.7);
+                  z-index: 10;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <div class="spinner"></div>
+                  <div
+                    class="loading-text"
+                    style="
+                      margin-top: 12px;
+                      color: #3b82f6;
+                      font-weight: 500;
+                      font-size: 1rem;
+                    "
+                  >
+                    Loading...
+                  </div>
+                </div>
+              </div>
+              <div id="fullscreenTimelineInner"></div>
+              <hr />
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <button id="closeFullscreenTimelineBtn" class="btn btn-cancel">
+                  Close
+                </button>
+                <button
+                  class="export-button"
+                  style="display: none; margin: 0; position: static"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    />
+                  </svg>
+                  Export as PNG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          id="loadingIndicator"
+          class="loading-indicator"
+          style="
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <div class="spinner"></div>
+            <div
+              class="loading-text"
+              style="
+                margin-top: 12px;
+                color: #3b82f6;
+                font-weight: 500;
+                font-size: 1rem;
+              "
+            >
+              Loading...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup" style="display: none">
+      <div id="popup-content">
+        <h4>Generated JSON</h4>
+        <textarea readonly id="jsonOutput"></textarea>
+        <div
+          style="
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            justify-content: space-between;
+          "
+        >
+          <button type="button" class="btn btn-cancel" id="closePopupBtn">
+            Close
+          </button>
+          <button type="button" class="btn" id="saveJsonBtn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="importJsonPopup"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(30, 41, 59, 0.3);
+        align-items: center;
+        justify-content: center;
+        z-index: 101;
+      "
+    >
+      <div
+        id="importJsonPopupContent"
+        style="
+          background: #fff;
+          padding: 32px;
+          border-radius: 12px;
+          min-width: 400px;
+          box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        "
+      >
+        <h4>Import Timeline JSON</h4>
+        <label class="upload-label">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 17V5M10 5L5 10M10 5L15 10"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          Upload JSON File
+          <input
+            type="file"
+            id="jsonFileInput"
+            accept="application/json,.json"
+          />
+        </label>
+        <textarea
+          id="jsonInput"
+          placeholder="Paste your timeline JSON here..."
+          style="
+            height: 120px;
+            font-family: monospace;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+          "
+        ></textarea>
+        <div id="jsonError" class="error-message" style="display: none"></div>
+        <div style="display: flex; gap: 12px; margin-top: 8px">
+          <button type="button" class="btn btn-save" id="loadJsonToForm">
+            Import
+          </button>
+          <button
+            type="button"
+            class="btn btn-cancel"
+            id="closeImportJsonPopupBtn"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #64748b;
+        padding: 6px 0;
+        z-index: 999;
+      "
+    >
+      &copy; 2025 llpzone. All rights reserved.
+    </div>
+    <script src="index.js?v=1"></script>
+  </body>
+</html>
